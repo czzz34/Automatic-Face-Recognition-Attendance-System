@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* General Reset */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+        }
+        body {
+            background-image: url("/static/wth.avif");
+            background-size: cover; /* Ensures the background covers the entire viewport */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the background from repeating */
+            background-attachment: fixed; /* Keeps the background fixed while scrolling */
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Ensures the background covers the full height of the viewport */
+            width: 100vw; /* Ensures the background covers the full width of the viewport */
+        }
+        .container {
+            width: 90%;
+            max-width: 500px; /* Increased width for a larger box */
+            padding: 30px; /* Adjusted padding for better proportions */
+            background-color: rgba(102, 51, 153, 0.5); /* Purplish semi-transparent background */
+            border-radius: 15px; /* Slightly more rounded corners */
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 25px;
+            color: #ffffff; /* White color for text to match purplish background */
+            font-size: 28px; /* Larger font for better visual impact */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        label {
+            margin: 15px 0 5px;
+            font-weight: bold;
+            color: #e0e0e0; /* Light text color for better contrast */
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #aaa;
+            border-radius: 8px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent input fields */
+        }
+
+        input:focus {
+            border-color: #ffffff;
+            outline: none;
+            background-color: rgba(255, 255, 255, 1); /* Fully opaque when focused */
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #663399; /* Matching purple color */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px; /* Larger text for emphasis */
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #5a2a85; /* Slightly darker purple on hover */
+        }
+
+        .flash-messages {
+            color: #ffcccc; /* Light red for warnings/messages */
+            margin-bottom: 15px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <form method="POST" action="/">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
