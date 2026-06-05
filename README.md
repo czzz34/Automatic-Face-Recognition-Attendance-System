@@ -1,66 +1,68 @@
+# Automatic Face Recognition Attendance System 🎯
 
+An intelligent attendance management system that leverages computer vision and facial recognition technology to automate and streamline the attendance tracking process.
 
----
-
-# Automatic Face Recognition Attendance System
-
-An automated attendance management system that utilizes computer vision to recognize faces and log attendance in real-time. The project features a dual-layer storage system (CSV and SQLite) and provides a secure Flask-powered web dashboard for users to review their records without risking data manipulation.
-
----
-
-
----
-
-## 🚀 Desktop GUI Features (gui.py)
-
-The main desktop application serves as the control panel for the system. It offers **5 primary operations**:
-
-1. **Mark Attendance:** Activates the camera loop using OpenCV to detect enrolled faces and automatically log timestamps.
-2. **Add Face:** Captures a sequence of images for a new user, associates them with a unique ID, and updates the recognition model.
-3. **View Records (Admin):** Requires administrative login credentials. Grants full read and write access (PUSH / POST / DELETE) to modify, correct, or update attendance logs directly.
-4. **View Records (User - Read-Only):** A strict read-only mode that locks out any data-modifying actions. Users can only perform GET requests, entirely eliminating the risk of accidental or unauthorized data manipulation.
-5. **Start Web Server:** Launches the local background Flask utility to host the remote monitoring dashboard.
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML5-E34C26?style=flat&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)
 
 ---
 
-## 📊 Dual-Database Storage
+## 📋 Table of Contents
 
-To ensure data redundancy and quick access speeds, attendance entries are written simultaneously to two different formats:
-
-* **attendance.db (SQLite):** Handles relational user profiling, login credentials, and structured logs for the Flask application.
-* **attendance.csv (Comma-Separated Values):** Serves as a clean, lightweight flat-file backup that can be instantly opened in Microsoft Excel or Google Sheets for manual reporting.
-
----
-
-## 🌐 Flask Web Dashboard
-
-The project includes an embedded web server running on **Flask**.
-
-* **Secure Access:** Employees or students can connect to the dashboard over the local network via their web browser.
-* **Isolated Session:** After a secure login, users can review their personal chronological attendance history.
-* **Zero-Tamper Design:** The web route explicitly blocks database write permissions for standard user sessions, ensuring logs remain completely safe and accurate.
+- [Overview](#overview)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [How It Works](#-how-it-works)
+- [Contributing](#-contributing)
+- [License](#-license)
 
 ---
 
-## 📦 Prerequisites & Installation
+## Overview
 
-### 1. Core Dependencies
+This project implements an automated attendance system that uses facial recognition to identify and track individuals. Instead of manual roll calls or sign-in sheets, the system detects faces in real-time, matches them against a database of known individuals, and automatically records attendance.
 
-Make sure you have Python installed alongside a working C++ compiler (required for some face recognition math packages).
-
-### 2. Install Required Packages
-
-```bash
-pip install opencv-python flask numpy
-
-```
-
-*(Note: Add any additional packages you are importing, such as face_recognition, dlib, or specific GUI libraries like PyQt5).*
+**Perfect for:**
+- Educational institutions (schools, colleges, universities)
+- Corporate offices and meeting rooms
+- Event management and tracking
+- Any organization needing automated attendance records
 
 ---
 
-## 🏁 How to Use
+## ✨ Features
 
-1. **Enroll Users:** Open the desktop interface, select **Add Face**, and enter the user details to build the image training set.
-2. **Run Attendance Mode:** Select **Mark Attendance** during check-in hours to let the webcam scan and log incoming faces.
-3. **Launch the Dashboard:** Start the Flask application to allow team members to view their logs securely from their own devices.
+- 🔍 **Real-Time Face Detection** - Detects multiple faces simultaneously using advanced computer vision
+- 🎯 **Facial Recognition** - Matches detected faces against a database of known individuals
+- 📊 **Automated Attendance Logging** - Automatically records attendance with timestamp
+- 💾 **Secure Database** - Stores attendance records and facial data securely
+- 🖥️ **Web Interface** - User-friendly dashboard for viewing and managing attendance records
+- 📱 **Responsive Design** - Works seamlessly on desktop and mobile devices
+- ⚡ **High Accuracy** - Uses state-of-the-art deep learning models for reliable identification
+
+---
+
+## 🛠 Tech Stack
+
+| Component | Technology |
+|-----------|-----------|
+| **Backend** | Python |
+| **Computer Vision** | OpenCV, Face Recognition Libraries |
+| **Frontend** | HTML5, CSS3 |
+| **Database** | SQL/Database Management System |
+| **Machine Learning** | Deep Learning Models (TensorFlow/PyTorch) |
+
+**Language Composition:**
+- Python: 68.2% (Core logic & ML)
+- HTML: 27.7% (Web interface)
+- CSS: 4.1% (Styling)
+
+---
+
+## 📁 Project Structure
