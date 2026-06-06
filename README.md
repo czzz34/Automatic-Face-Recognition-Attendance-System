@@ -66,7 +66,7 @@ This project implements an automated attendance system that uses facial recognit
 ---
 
 ## 📁 Project Structure
-Automatic-Face-Recognition-Attendance-System/ ├── README.md ├── requirements.txt ├── main.py ├── config.py │ ├── src/ │ ├── face_detection.py │ ├── face_recognition.py │ ├── attendance_logger.py │ └── utils.py │ ├── models/ │ └── trained_models/ │ ├── data/ │ ├── known_faces/ │ └── attendance_records/ │ ├── web/ │ ├── index.html │ ├── dashboard.html │ ├── styles.css │ └── script.js │ └── tests/ └── test_*.py
+
 
 Code
 
